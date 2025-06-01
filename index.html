@@ -1,0 +1,139 @@
+
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Saint Rawk</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Header con monograma -->
+  <header class="header">
+  <div class="monograma">
+    <img src="img/monograma1.png" alt="Monograma Saint Rawk" class="monograma-img" />
+  </div>
+
+  <div class="logo">
+    <img src="img/logotipo.png" alt="Saint Rawk Logo" class="logo-img" />
+  </div>
+
+  <nav class="nav">
+    <button class="hamburger" aria-label="Menú" onclick="toggleMenu()">☰</button>
+    <ul class="nav-links">
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#sobre">Sobre nosotros</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <!-- Hero -->
+  <section class="hero" id="inicio">
+    <div class="overlay">
+      <h1 class="manifiesto">Creación contestataria. Oscuro, grunge y con sentido.</h1>
+      <a href="#galeria" class="btn">Explora</a>
+    </div>
+  </section>
+
+  <!-- Galería -->
+  <section class="galeria" id="galeria">
+    <h2>Galería</h2>
+    <div class="imagenes">
+      <div class="imagen-con-descripcion">
+        <img src="img/img1.jpg" alt="Obra 1">
+        <p>Poster callejero — Un poster fiel al estilo SAINT RAWK.</p>
+      </div>
+
+      <div class="imagen-con-descripcion">
+        <img src="img/img2.jpg" alt="Obra 2">
+        <p>Camiseta — Esta pieza refleja el estilo sobrio que maneja la marca.</p>
+      </div>
+
+      <div class="imagen-con-descripcion">
+        <img src="img/img3.jpg" alt="Obra 3">
+        <p>Poster callejero — Inspiración grunge con elementos oníricos.</p>
+      </div>
+
+      <div class="imagen-con-descripcion">
+        <img src="img/img4.png" alt="Obra 4">
+        <p>Gorra Saint Rawk — Gorra con monograma aplicado.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre nosotros -->
+  <section class="sobre" id="sobre">
+    <h2>Sobre nosotros</h2>
+    <p>
+      Saint Rawk es un universo de expresión visual donde el arte, el diseño y la protesta estética convergen...
+    </p>
+
+    <div class="bloques-mv">
+      <div class="bloque">
+        <h3>Misión</h3>
+        <p>
+          Desarrollar propuestas de diseño gráfico que fusionen funcionalidad y expresión simbólica...
+        </p>
+      </div>
+      <div class="bloque">
+        <h3>Visión</h3>
+        <p>
+          Construir un universo creativo donde el arte, el diseño y la moda convivan como lenguajes de identidad...
+        </p>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+      <span class="close">&times;</span>
+      <img class="lightbox-content" id="lightbox-img" />
+    </div>
+
+    <script>
+      document.querySelectorAll('.imagenes img').forEach(img => {
+        img.addEventListener('click', () => {
+          const lightbox = document.getElementById('lightbox');
+          const lightboxImg = document.getElementById('lightbox-img');
+          lightbox.style.display = 'flex';
+          lightboxImg.src = img.src;
+          lightboxImg.alt = img.alt;
+        });
+      });
+
+      document.querySelector('.close').addEventListener('click', () => {
+        document.getElementById('lightbox').style.display = 'none';
+      });
+
+      document.getElementById('lightbox').addEventListener('click', (e) => {
+        if (e.target.id === 'lightbox') {
+          document.getElementById('lightbox').style.display = 'none';
+        }
+      });
+    
+function toggleMenu() {
+  const menu = document.querySelector('.nav-links');
+  menu.classList.toggle('show');
+  
+  // Opcional: cambiar el ícono al abrir/cerrar
+  const hamburger = document.querySelector('.hamburger');
+  if (menu.classList.contains('show')) {
+    hamburger.textContent = '✕'; // Cambia a X cuando está abierto
+  } else {
+    hamburger.textContent = '☰'; // Vuelve a hamburguesa cuando está cerrado
+  }
+}
+
+</script>
+
+    </script>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    &copy; 2025 Saint Rawk. Todos los derechos reservados.
+  </footer>
+</body>
+</html>
+
+
